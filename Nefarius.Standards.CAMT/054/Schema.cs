@@ -344,7 +344,7 @@ public class BkToCstmrDbtCdtNtfctn
     public List<Ntfctn> Ntfctn { get; set; }
 }
 
-[XmlRoot(ElementName = "Document")]
+[XmlRoot(ElementName = "Document", Namespace = "ISO:camt.054.001.02:APC:STUZZA:payments:003")]
 public class Document
 {
     [XmlElement(ElementName = "BkToCstmrDbtCdtNtfctn")]

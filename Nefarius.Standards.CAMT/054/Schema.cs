@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using ExtendedXmlSerializer;
-using ExtendedXmlSerializer.Configuration;
 
 namespace Nefarius.Standards.CAMT._054;
 
@@ -636,9 +634,8 @@ public class BkToCstmrDbtCdtNtfctn
     /// <summary>
     ///     Notifications
     /// </summary>
-    //[XmlArray("Ntfctns")]
-    //[XmlArrayItem(typeof(Ntfctn), ElementName = "Ntfctn")]
-    [XmlElement(ElementName = "Ntfctns")]
+    [XmlArray("Ntfctns")]
+    [XmlArrayItem(typeof(Ntfctn), ElementName = "Ntfctn")]
     public List<Ntfctn> Ntfctns { get; set; }
 }
 
@@ -653,11 +650,4 @@ public class Document
     /// </summary>
     [XmlElement(ElementName = "BkToCstmrDbtCdtNtfctn")]
     public BkToCstmrDbtCdtNtfctn BkToCstmrDbtCdtNtfctn { get; set; }
-
-    /// <summary>
-    ///     Gets an <see cref="IExtendedXmlSerializer" /> instance.
-    /// </summary>
-    public static IExtendedXmlSerializer Serializer => new ConfigurationContainer()
-        .EnableImplicitTyping(typeof(Document))
-        .Create();
 }

@@ -23,9 +23,4 @@
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="ExtendedXmlSerializer" Version="3.7.6" />
-  </ItemGroup>
-
 </Project>

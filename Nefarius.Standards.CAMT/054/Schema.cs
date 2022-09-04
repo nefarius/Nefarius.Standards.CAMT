@@ -636,8 +636,8 @@ public class BkToCstmrDbtCdtNtfctn
     /// <summary>
     ///     Notifications
     /// </summary>
-    [XmlArray]
-    [XmlArrayItem(ElementName = "Ntfctn")]
+    [XmlArray("Ntfctns")]
+    [XmlArrayItem(typeof(Ntfctn), ElementName = "Ntfctn")]
     public List<Ntfctn> Ntfctns { get; set; }
 }
 

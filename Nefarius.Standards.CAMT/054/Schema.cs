@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace Nefarius.Standards.CAMT._054;
@@ -650,4 +653,61 @@ public class Document
     /// </summary>
     [XmlElement(ElementName = "BkToCstmrDbtCdtNtfctn")]
     public BkToCstmrDbtCdtNtfctn BkToCstmrDbtCdtNtfctn { get; set; }
+
+    /// <summary>
+    ///     Deserializes from a <see cref="Stream" />.
+    /// </summary>
+    /// <param name="stream">The source stream.</param>
+    /// <returns>The deserialized document.</returns>
+    public static Document Deserialize(Stream stream)
+    {
+        return Deserialize(XDocument.Load(stream));
+    }
+
+    /// <summary>
+    ///     Deserializes from a file path.
+    /// </summary>
+    /// <param name="uri">The source file path.</param>
+    /// <returns>The deserialized document.</returns>
+    public static Document Deserialize(string uri)
+    {
+        return Deserialize(XDocument.Load(uri));
+    }
+
+    private static Document Deserialize(XDocument doc)
+    {
+        FixNotificationList(doc.Root);
+
+        var reader = doc.Root.CreateReader();
+
+        var xmlSerializer = new XmlSerializer(typeof(Document));
+        return (Document)xmlSerializer.Deserialize(reader);
+    }
+
+    /// <summary>
+    ///     Fixes the problems in the source XML so it can be deserialized properly.
+    /// </summary>
+    /// <param name="node">The root node of the document.</param>
+    private static void FixNotificationList(XElement node)
+    {
+        XNamespace docNs = "ISO:camt.054.001.02:APC:STUZZA:payments:003";
+
+        var root = (XElement)node.FirstNode;
+
+        if (root is null)
+            return;
+
+        var groupHeader = root.Nodes().OfType<XElement>().First(e => Equals(e.Name.LocalName, "GrpHdr"));
+
+        var notifications = root.Nodes().OfType<XElement>().Where(e => Equals(e.Name.LocalName, "Ntfctn")).ToList();
+
+        var list = new XElement(docNs + "Ntfctns", notifications);
+
+        root.ReplaceWith(
+            new XElement(docNs + "BkToCstmrDbtCdtNtfctn",
+                groupHeader,
+                list
+            )
+        );
+    }
 }

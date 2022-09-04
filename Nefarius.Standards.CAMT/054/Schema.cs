@@ -145,6 +145,12 @@ public class Amt
     /// </summary>
     [XmlAttribute(AttributeName = "Ccy")]
     public string Ccy { get; set; }
+
+    /// <summary>
+    ///     Amount Value
+    /// </summary>
+    [XmlText]
+    public decimal Value { get; set; }
 }
 
 /// <summary>

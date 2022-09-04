@@ -653,18 +653,6 @@ public class Document
     public BkToCstmrDbtCdtNtfctn BkToCstmrDbtCdtNtfctn { get; set; }
 
     /// <summary>
-    ///     XML Namespace
-    /// </summary>
-    [XmlAttribute(AttributeName = "xmlns")]
-    public string Xmlns { get; set; }
-
-    /// <summary>
-    ///     XML Schema-Instance
-    /// </summary>
-    [XmlAttribute(AttributeName = "xsi")]
-    public string Xsi { get; set; }
-
-    /// <summary>
     ///     Gets an <see cref="IExtendedXmlSerializer" /> instance.
     /// </summary>
     public static IExtendedXmlSerializer Serializer => new ConfigurationContainer()

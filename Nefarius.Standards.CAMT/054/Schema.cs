@@ -395,34 +395,61 @@ public class RltdPties
 [XmlRoot(ElementName = "DbtrAgt")]
 public class DbtrAgt
 {
+    /// <summary>
+    ///     Financial Institution Identification
+    /// </summary>
     [XmlElement(ElementName = "FinInstnId")]
     public FinInstnId FinInstnId { get; set; }
 }
 
+/// <summary>
+///     Related Agents
+/// </summary>
 [XmlRoot(ElementName = "RltdAgts")]
 public class RltdAgts
 {
+    /// <summary>
+    ///     Debtor Agent
+    /// </summary>
     [XmlElement(ElementName = "DbtrAgt")]
     public DbtrAgt DbtrAgt { get; set; }
 }
 
+/// <summary>
+///     Code Or Proprietary
+/// </summary>
 [XmlRoot(ElementName = "CdOrPrtry")]
 public class CdOrPrtry
 {
+    /// <summary>
+    ///     Code
+    /// </summary>
     [XmlElement(ElementName = "Cd")]
     public string Cd { get; set; }
 }
 
+/// <summary>
+///     Type
+/// </summary>
 [XmlRoot(ElementName = "Tp")]
 public class Tp
 {
+    /// <summary>
+    ///     Code Or Proprietary
+    /// </summary>
     [XmlElement(ElementName = "CdOrPrtry")]
     public CdOrPrtry CdOrPrtry { get; set; }
 }
 
+/// <summary>
+///     Creditor Reference
+/// </summary>
 [XmlRoot(ElementName = "CdtrRefInf")]
 public class CdtrRefInf
 {
+    /// <summary>
+    ///     Type
+    /// </summary>
     [XmlElement(ElementName = "Tp")]
     public Tp Tp { get; set; }
 
@@ -430,6 +457,9 @@ public class CdtrRefInf
     public double Ref { get; set; }
 }
 
+/// <summary>
+///     Structured
+/// </summary>
 [XmlRoot(ElementName = "Strd")]
 public class Strd
 {
@@ -437,63 +467,120 @@ public class Strd
     public CdtrRefInf CdtrRefInf { get; set; }
 }
 
+/// <summary>
+///     Remittance Information
+/// </summary>
 [XmlRoot(ElementName = "RmtInf")]
 public class RmtInf
 {
+    /// <summary>
+    ///     Structured
+    /// </summary>
     [XmlElement(ElementName = "Strd")]
     public Strd Strd { get; set; }
 }
 
+/// <summary>
+///     Transaction Details
+/// </summary>
 [XmlRoot(ElementName = "TxDtls")]
 public class TxDtls
 {
+    /// <summary>
+    ///     References
+    /// </summary>
     [XmlElement(ElementName = "Refs")]
     public Refs Refs { get; set; }
 
+    /// <summary>
+    ///     Amount Details
+    /// </summary>
     [XmlElement(ElementName = "AmtDtls")]
     public AmtDtls AmtDtls { get; set; }
 
+    /// <summary>
+    ///     Related Parties
+    /// </summary>
     [XmlElement(ElementName = "RltdPties")]
     public RltdPties RltdPties { get; set; }
 
+    /// <summary>
+    ///     Related Agents
+    /// </summary>
     [XmlElement(ElementName = "RltdAgts")]
     public RltdAgts RltdAgts { get; set; }
 
+    /// <summary>
+    ///     Remittance Information
+    /// </summary>
     [XmlElement(ElementName = "RmtInf")]
     public RmtInf RmtInf { get; set; }
 }
 
+/// <summary>
+///     Entry Details
+/// </summary>
 [XmlRoot(ElementName = "NtryDtls")]
 public class NtryDtls
 {
+    /// <summary>
+    ///     Transaction Details
+    /// </summary>
     [XmlElement(ElementName = "TxDtls")]
     public List<TxDtls> TxDtls { get; set; }
 }
 
+/// <summary>
+///     Entry
+/// </summary>
 [XmlRoot(ElementName = "Ntry")]
 public class Ntry
 {
+    /// <summary>
+    ///     Amount
+    /// </summary>
     [XmlElement(ElementName = "Amt")]
     public Amt Amt { get; set; }
 
+    /// <summary>
+    ///     Credit Debit Indicator
+    /// </summary>
     [XmlElement(ElementName = "CdtDbtInd")]
     public string CdtDbtInd { get; set; }
 
+    /// <summary>
+    ///     Status
+    /// </summary>
     [XmlElement(ElementName = "Sts")]
     public string Sts { get; set; }
 
+    /// <summary>
+    ///     Booking Date
+    /// </summary>
     [XmlElement(ElementName = "BookgDt")]
     public BookgDt BookgDt { get; set; }
 
+    /// <summary>
+    ///     Value Date
+    /// </summary>
     [XmlElement(ElementName = "ValDt")]
     public ValDt ValDt { get; set; }
 
+    /// <summary>
+    ///     Account Servicer Reference
+    /// </summary>
     [XmlElement(ElementName = "AcctSvcrRef")]
     public string AcctSvcrRef { get; set; }
 
+    /// <summary>
+    ///     Bank Transaction Code
+    /// </summary>
     [XmlElement(ElementName = "BkTxCd")]
     public BkTxCd BkTxCd { get; set; }
 
+    /// <summary>
+    ///     Entry Details
+    /// </summary>
     [XmlElement(ElementName = "NtryDtls")]
     public NtryDtls NtryDtls { get; set; }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using ExtendedXmlSerializer;
+using ExtendedXmlSerializer.Configuration;
 
 namespace Nefarius.Standards.CAMT._054;
 
@@ -142,9 +144,6 @@ public class Amt
     /// </summary>
     [XmlAttribute(AttributeName = "Ccy")]
     public string Ccy { get; set; }
-
-    [XmlText]
-    public int Text { get; set; }
 }
 
 /// <summary>
@@ -442,7 +441,7 @@ public class Tp
 }
 
 /// <summary>
-///     Creditor Reference
+///     Creditor Reference Information
 /// </summary>
 [XmlRoot(ElementName = "CdtrRefInf")]
 public class CdtrRefInf
@@ -453,8 +452,11 @@ public class CdtrRefInf
     [XmlElement(ElementName = "Tp")]
     public Tp Tp { get; set; }
 
+    /// <summary>
+    ///     Reference
+    /// </summary>
     [XmlElement(ElementName = "Ref")]
-    public double Ref { get; set; }
+    public string Ref { get; set; }
 }
 
 /// <summary>
@@ -463,6 +465,9 @@ public class CdtrRefInf
 [XmlRoot(ElementName = "Strd")]
 public class Strd
 {
+    /// <summary>
+    ///     Creditor Reference Information
+    /// </summary>
     [XmlElement(ElementName = "CdtrRefInf")]
     public CdtrRefInf CdtrRefInf { get; set; }
 }
@@ -591,15 +596,27 @@ public class Ntry
 [XmlRoot(ElementName = "Ntfctn")]
 public class Ntfctn
 {
+    /// <summary>
+    ///     Identification
+    /// </summary>
     [XmlElement(ElementName = "Id")]
     public string Id { get; set; }
 
+    /// <summary>
+    ///     Creation Date Time
+    /// </summary>
     [XmlElement(ElementName = "CreDtTm")]
     public DateTime CreDtTm { get; set; }
 
+    /// <summary>
+    ///     Account
+    /// </summary>
     [XmlElement(ElementName = "Acct")]
     public Acct Acct { get; set; }
 
+    /// <summary>
+    ///     Entry
+    /// </summary>
     [XmlElement(ElementName = "Ntry")]
     public Ntry Ntry { get; set; }
 }
@@ -635,9 +652,22 @@ public class Document
     [XmlElement(ElementName = "BkToCstmrDbtCdtNtfctn")]
     public BkToCstmrDbtCdtNtfctn BkToCstmrDbtCdtNtfctn { get; set; }
 
+    /// <summary>
+    ///     XML Namespace
+    /// </summary>
     [XmlAttribute(AttributeName = "xmlns")]
     public string Xmlns { get; set; }
 
+    /// <summary>
+    ///     XML Schema-Instance
+    /// </summary>
     [XmlAttribute(AttributeName = "xsi")]
     public string Xsi { get; set; }
+
+    /// <summary>
+    ///     Gets an <see cref="IExtendedXmlSerializer" /> instance.
+    /// </summary>
+    public static IExtendedXmlSerializer Serializer => new ConfigurationContainer()
+        .EnableImplicitTyping(typeof(Document))
+        .Create();
 }

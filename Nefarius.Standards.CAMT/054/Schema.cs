@@ -585,6 +585,9 @@ public class Ntry
     public NtryDtls NtryDtls { get; set; }
 }
 
+/// <summary>
+///     Notification
+/// </summary>
 [XmlRoot(ElementName = "Ntfctn")]
 public class Ntfctn
 {
@@ -601,19 +604,34 @@ public class Ntfctn
     public Ntry Ntry { get; set; }
 }
 
+/// <summary>
+///     Bank To Customer Debit Credit Notification
+/// </summary>
 [XmlRoot(ElementName = "BkToCstmrDbtCdtNtfctn")]
 public class BkToCstmrDbtCdtNtfctn
 {
+    /// <summary>
+    ///     Group Header
+    /// </summary>
     [XmlElement(ElementName = "GrpHdr")]
     public GrpHdr GrpHdr { get; set; }
 
+    /// <summary>
+    ///     Notifications
+    /// </summary>
     [XmlElement(ElementName = "Ntfctn")]
     public List<Ntfctn> Ntfctn { get; set; }
 }
 
+/// <summary>
+///     ISO:camt.054.001.02:APC:STUZZA:payments:003 document
+/// </summary>
 [XmlRoot(ElementName = "Document", Namespace = "ISO:camt.054.001.02:APC:STUZZA:payments:003")]
 public class Document
 {
+    /// <summary>
+    ///     Bank To Customer Debit Credit Notification
+    /// </summary>
     [XmlElement(ElementName = "BkToCstmrDbtCdtNtfctn")]
     public BkToCstmrDbtCdtNtfctn BkToCstmrDbtCdtNtfctn { get; set; }
 
@@ -622,7 +640,4 @@ public class Document
 
     [XmlAttribute(AttributeName = "xsi")]
     public string Xsi { get; set; }
-
-    [XmlText]
-    public string Text { get; set; }
 }

@@ -1,5 +1,6 @@
 # <img src="assets/NSS-128x128.png" align="left" />Nefarius.Standards.CAMT
 
+[![.NET](https://github.com/nefarius/Nefarius.Standards.CAMT/actions/workflows/build.yml/badge.svg)](https://github.com/nefarius/Nefarius.Standards.CAMT/actions/workflows/build.yml)
 ![Requirements](https://img.shields.io/badge/Requires-.NET%20Standard%202.0-blue.svg)
 
 Utility classes to help decoding "Bank-to-Customer Cash Management Swiss Payment Standards" a.k.a. CAMT XML files.

@@ -651,7 +651,7 @@ public class BkToCstmrDbtCdtNtfctn
 }
 
 /// <summary>
-///     ISO:camt.054.001.02:APC:STUZZA:payments:003 document
+///     ISO 20022 Debit Notification camt.054 version 2
 /// </summary>
 [XmlRoot(ElementName = "Document", Namespace = "ISO:camt.054.001.02:APC:STUZZA:payments:003")]
 public class Document

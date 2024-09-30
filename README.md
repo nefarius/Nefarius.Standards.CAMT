@@ -9,3 +9,4 @@ Utility classes to help decoding "Bank-to-Customer Cash Management Swiss Payment
 
 - [Bank-to-Customer Cash Management Swiss Payment Standards](https://www.credit-suisse.com/media/assets/microsite/docs/zv-migration/camt-05x-001-04-sps.pdf)
 - [Schema ISO:camt.054.001.02:APC:STUZZA:payments:003](https://zv.psa.at/schemata/ISO.camt.054.001.02.austrian.003.xsd)
+- [ISO 20022 XML](https://www.handelsbanken.com/en/our-services/digital-services/global-gateway/iso-20022-xml)

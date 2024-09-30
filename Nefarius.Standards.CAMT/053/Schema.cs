@@ -181,7 +181,7 @@ public class Refs
     public string TxId { get; set; }
 
     [XmlElement(ElementName = "EndToEndId", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
-    public double EndToEndId { get; set; }
+    public string EndToEndId { get; set; }
 }
 
 [XmlRoot(ElementName = "InstdAmt", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]

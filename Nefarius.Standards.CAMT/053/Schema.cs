@@ -18,7 +18,7 @@ public class MsgRcpt
 public class GrpHdr
 {
     [XmlElement(ElementName = "MsgId", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
-    public double MsgId { get; set; }
+    public string MsgId { get; set; }
 
     [XmlElement(ElementName = "CreDtTm", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
     public DateTime CreDtTm { get; set; }
@@ -81,7 +81,7 @@ public class Amt
     [XmlAttribute(AttributeName = "Ccy", Namespace = "")]
     public string Ccy { get; set; }
 
-    [XmlText] public double Text { get; set; }
+    [XmlText] public decimal Text { get; set; }
 }
 
 [XmlRoot(ElementName = "Dt", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]

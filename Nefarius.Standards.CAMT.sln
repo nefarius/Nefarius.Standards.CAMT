@@ -5,6 +5,16 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nefarius.Standards.CAMT", "Nefarius.Standards.CAMT\Nefarius.Standards.CAMT.csproj", "{6F916721-A54A-43F6-B286-B599DD468C3F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE4AAA9E-F121-4789-966F-2363D7953339}"
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\workflows\publish-to-nuget.yml = .github\workflows\publish-to-nuget.yml
+		Directory.Build.props = Directory.Build.props
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -366,7 +366,7 @@ public class Stmt
     public int ElctrncSeqNb { get; set; }
 
     [XmlElement(ElementName = "LglSeqNb", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
-    public int LglSeqNb { get; set; }
+    public string LglSeqNb { get; set; }
 
     [XmlElement(ElementName = "CreDtTm", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
     public DateTime CreDtTm { get; set; }

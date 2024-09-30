@@ -32,7 +32,7 @@ public class GrpHdr
     ///     Message Identification
     /// </summary>
     [XmlElement(ElementName = "MsgId")]
-    public double MsgId { get; set; }
+    public string MsgId { get; set; }
 
     /// <summary>
     ///     Creation Date Time
@@ -273,7 +273,7 @@ public class Refs
     ///     End To End Identification
     /// </summary>
     [XmlElement(ElementName = "EndToEndId")]
-    public double EndToEndId { get; set; }
+    public string EndToEndId { get; set; }
 }
 
 /// <summary>

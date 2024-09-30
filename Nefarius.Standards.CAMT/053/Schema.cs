@@ -360,7 +360,7 @@ public class Ntry
 public class Stmt
 {
     [XmlElement(ElementName = "Id", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
-    public double Id { get; set; }
+    public string Id { get; set; }
 
     [XmlElement(ElementName = "ElctrncSeqNb", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
     public int ElctrncSeqNb { get; set; }

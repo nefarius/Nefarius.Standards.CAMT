@@ -1,7 +1,9 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
@@ -682,11 +684,16 @@ public class Document
 
     private static Document Deserialize(XDocument doc)
     {
+        if (doc.Root is null)
+        {
+            throw new ArgumentNullException(nameof(doc));
+        }
+
         FixNotificationList(doc.Root);
 
-        var reader = doc.Root.CreateReader();
+        XmlReader reader = doc.Root.CreateReader();
 
-        var xmlSerializer = new XmlSerializer(typeof(Document));
+        XmlSerializer xmlSerializer = new(typeof(Document));
         return (Document)xmlSerializer.Deserialize(reader);
     }
 
@@ -698,16 +705,19 @@ public class Document
     {
         XNamespace docNs = "ISO:camt.054.001.02:APC:STUZZA:payments:003";
 
-        var root = (XElement)node.FirstNode;
+        XElement root = (XElement)node.FirstNode;
 
         if (root is null)
+        {
             return;
+        }
 
-        var groupHeader = root.Nodes().OfType<XElement>().First(e => Equals(e.Name.LocalName, "GrpHdr"));
+        XElement groupHeader = root.Nodes().OfType<XElement>().First(e => Equals(e.Name.LocalName, "GrpHdr"));
 
-        var notifications = root.Nodes().OfType<XElement>().Where(e => Equals(e.Name.LocalName, "Ntfctn")).ToList();
+        List<XElement> notifications =
+            root.Nodes().OfType<XElement>().Where(e => Equals(e.Name.LocalName, "Ntfctn")).ToList();
 
-        var list = new XElement(docNs + "Ntfctns", notifications);
+        XElement list = new(docNs + "Ntfctns", notifications);
 
         root.ReplaceWith(
             new XElement(docNs + "BkToCstmrDbtCdtNtfctn",

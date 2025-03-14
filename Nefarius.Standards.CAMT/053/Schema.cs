@@ -394,6 +394,7 @@ public class BkToCstmrStmt
 /// <summary>
 ///     ISO 20022 Account Statement camt.053 version 2
 /// </summary>
+/// <remarks>Bank to Customer Statement</remarks>
 [XmlRoot(ElementName = "Document", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
 public class Document
 {

@@ -214,7 +214,7 @@ public class PstlAdr
     [XmlElement(ElementName = "Ctry", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
     public string Ctry { get; set; }
 
-    [XmlElement(ElementName = "Ctry", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
+    [XmlElement(ElementName = "AdrLine", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
     public string AdrLine { get; set; }
 }
 

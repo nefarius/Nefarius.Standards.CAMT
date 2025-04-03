@@ -213,6 +213,9 @@ public class PstlAdr
 {
     [XmlElement(ElementName = "Ctry", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
     public string Ctry { get; set; }
+
+    [XmlElement(ElementName = "Ctry", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]
+    public string AdrLine { get; set; }
 }
 
 [XmlRoot(ElementName = "Dbtr", Namespace = "ISO:camt.053.001.02:APC:STUZZA:payments:003")]

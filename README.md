@@ -14,6 +14,10 @@ My use case for creating this library only covered/required the following implem
 - `camt.053.001.02`
 - `camt.054.001.02`
 
+## Disclaimer
+
+Only **Credit** statements were processed/tested fairly thoroughly, so for anything else, you're on your own!
+
 ## Sources
 
 - [Bank-to-Customer Cash Management Swiss Payment Standards](https://web.archive.org/web/20240530043118/https://www.credit-suisse.com/media/assets/microsite/docs/zv-migration/camt-05x-001-04-sps.pdf)

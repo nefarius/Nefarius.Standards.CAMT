@@ -7,6 +7,13 @@
 
 Utility classes to help decode "Bank-to-Customer Cash Management Swiss Payment Standards" a.k.a. CAMT XML files.
 
+## Covered versions
+
+My use case for creating this library only covered/required the following implementations:
+
+- `camt.053.001.02`
+- `camt.054.001.02`
+
 ## Sources
 
 - [Bank-to-Customer Cash Management Swiss Payment Standards](https://web.archive.org/web/20240530043118/https://www.credit-suisse.com/media/assets/microsite/docs/zv-migration/camt-05x-001-04-sps.pdf)
